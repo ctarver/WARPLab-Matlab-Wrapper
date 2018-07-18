@@ -3,7 +3,12 @@ This is the way I like to use WARPLab with the WARPv3 board. [Checkout the WARP 
 
 This repo has a WARP class that handles most of the details. To use, just put in your directory. 
 
-### How to use the WARP class
+### How to install this: 
+Download the latest version of WARPLab from [here](https://warpproject.org/trac/wiki/WARPLab/Downloads). Follow their instructions to get the WARPLab environment set up as normal. This mostly involves connecting your WARP board via ethernet, putting the binary image on the SD card, setting up the static IP, and running the wl_setup.m in the M_Code_Reference folder in the WARPLab files. 
+
+Download this repo. Put the WARP.m in the folder of your project that uses WARP or in any folder that is in the Matlab path. Then proceed to use the class to setup and handle all the transmitting through your WARP board.
+
+### How to use the WARP class:
 Initialize with:
 `board = WARP(params);`
 
@@ -15,7 +20,7 @@ To send something through the WARP board, simply use the transmit method, `rxDat
 
 Checkout the example.m to see more. 
   
-### More settings
+### More settings:
   There are various settings that are set up in the class constructor. These include gain and channel settings. Set these up for your purposes then just run with it.
 
 ```matlab
