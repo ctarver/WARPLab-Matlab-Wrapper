@@ -2,9 +2,19 @@
 This is the way I like to use WARPLab with the WARPv3 board. [Checkout the WARP website for more info on WARP.](https://warpproject.org/trac)
 
 ### How to install this: 
+#### Option 1: Add WARP.m to the path:
 Download the latest version of WARPLab from [here](https://warpproject.org/trac/wiki/WARPLab/Downloads). Follow their instructions to get the WARPLab environment set up as normal. This mostly involves connecting your WARP board via ethernet, putting the binary image on the SD card, setting up the static IP, and running the wl_setup.m in the M_Code_Reference folder in the WARPLab files. 
 
 Download this repo. Put the WARP.m in the folder of your project that uses WARP or in any folder that is in the Matlab path. Then proceed to use the class to setup and handle all the transmitting through your WARP board.
+
+#### Option 2: Add as a submodule in your git project:
+If you already are using git with your project, you can use this as a submodule. In the main directory of your project, run
+```
+git submodule add https://github.com/ctarver/WARPLab-Matlab-Wrapper.git
+git submodule update --init --recursive
+```
+This repo should show up in your project. Then just commit the new submodule to your project like you would commit anything. 
+To use the class, you still need to add the WARP.m to your Matlab path.
 
 ### How to use the WARP class:
 Initialize with:
