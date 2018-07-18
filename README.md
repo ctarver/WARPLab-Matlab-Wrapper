@@ -1,8 +1,6 @@
 # WARPLab Matlab Wrapper
 This is the way I like to use WARPLab with the WARPv3 board. [Checkout the WARP website for more info on WARP.](https://warpproject.org/trac)
 
-This repo has a WARP class that handles most of the details. To use, just put in your directory. 
-
 ### How to install this: 
 Download the latest version of WARPLab from [here](https://warpproject.org/trac/wiki/WARPLab/Downloads). Follow their instructions to get the WARPLab environment set up as normal. This mostly involves connecting your WARP board via ethernet, putting the binary image on the SD card, setting up the static IP, and running the wl_setup.m in the M_Code_Reference folder in the WARPLab files. 
 
