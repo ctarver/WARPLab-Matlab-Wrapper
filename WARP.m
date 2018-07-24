@@ -45,19 +45,19 @@ classdef WARP  < handle
             end
             
             % RX variables
-            obj.channels.RX        = 6;
+            obj.channels.RX        = 1;
             obj.gains.RxGainRF     = 1;  % Rx RF Gain in [1:3] (ignored if USE_AGC is true)
-            obj.gains.RxGainBB     = 20; % Rx Baseband Gain in [0:31] (ignored if USE_AGC is true)
+            obj.gains.RxGainBB     = 8; % Rx Baseband Gain in [0:31] (ignored if USE_AGC is true)
             obj.filters.RX_LPF     = 3;  % [0,1,2,3] for approx ![7.5,9.5,14,18]MHz corner
             obj.filters.RX_LPFFine = 2;  % Must be integer in [0,1,2,3,4,5] for [90,95,100,105,110]% scaling to LPF corner frequency
             obj.filters.RX_HPF     = 0;  % Must be 0 (HPF corner of 100 Hz) or 1 (default; HPF corner of 30 kHz) This filter setting is only used when RXHP is 'disable' (ie 0)
             obj.filters.RX_HP      = 'disable';  % (boolean MODE) MODE: true enables RXHP on the node when in manual gain control false disables RXHP on the node when in manual gain control
             
             % TX variables
-            obj.channels.TX     = 6;
+            obj.channels.TX     = 1;
             obj.gains.TxGainBB  = 3;  % [0,1,2,3] for approx ![-5, -3, -1.5, 0]dB baseband gain
             obj.gains.TXGainRF  = 55; % [0:63] for approx [0:31]dB RF gain
-            obj.filters.TX_LPF  = 1;  % [1,2,3] for approx [12,18,24]MHz corner frequencies ([24,36,48]MHz bandwidths)
+            obj.filters.TX_LPF  = 2;  % [1,2,3] for approx [12,18,24]MHz corner frequencies ([24,36,48]MHz bandwidths)
             
             %DC offset
             obj.dc.real = 0;%0.0220;
@@ -144,7 +144,7 @@ classdef WARP  < handle
             %Update the TX and RX lengths
             original_signal_input = txData1;
             obj.tx_length = length(txData1);
-            obj.rx_length    = obj.tx_length+100;
+            obj.rx_length = obj.tx_length+100;
             wl_basebandCmd(obj.nodes, 'tx_length', obj.tx_length);
             wl_basebandCmd(obj.nodes, 'rx_length', obj.rx_length);
             
@@ -161,7 +161,7 @@ classdef WARP  < handle
             max_imag = max(abs(imag(txData1)));
             max_max = max(max_real, max_imag);
             if max_max > 0.95
-                error('Saturating DAC of WARP.');
+                warning('Saturating DAC of WARP.');
             end
             
             
