@@ -4,7 +4,7 @@
 %
 % Author: Chance Tarver
 % Website: http://www.chancetarver.com
-% July 2018; Last revision: 12-May-2004
+% July 2018
 
 %% ------------- BEGIN CODE --------------
 
