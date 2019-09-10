@@ -186,7 +186,7 @@ classdef WARP  < handle
                     warning('Saturation in ADC. Reducing RX gain.');
                     obj.gains.RxGainBB = obj.gains.RxGainBB - 1;
                 elseif max(abs(real(rx_iq))) < 0.5 | max(abs(imag(rx_iq))) < 0.5
-                    warning('Underflow in ADC. Increaseing RX gain.');
+                    warning('Underflow in ADC. Increasing RX gain.');
                     obj.gains.RxGainBB = obj.gains.RxGainBB + 1;
                 else
                     fprintf('The new RX Gain is %d.\n', obj.gains.RxGainBB);
